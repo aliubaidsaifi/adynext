@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* ---- THEME TOKENS (R G B channels) ---- */
+  --bg: 251 250 247;          /* #FBFAF7 warm ivory  */
+  --surface: 241 237 228;     /* #F1EDE4 tinted band */
+  --ink: 22 22 26;            /* #16161A soft black  */
+  --muted: 111 107 99;        /* #6F6B63 warm grey   */
+  --line: 228 223 212;        /* #E4DFD4 hairline    */
+
+  /* Brand */
+  --accent: 196 248 42;        /* #C4F82A lime — fills only  */
+  --accent-hover: 176 230 23;  /* #B0E617                    */
+  --accent-ink: 74 122 11;     /* #4A7A0B deep — text on light */
+  --accent-soft: 237 251 207;  /* #EDFBCF tint               */
+  --coral: 229 72 77;          /* #E5484D signal red         */
+  --coral-soft: 253 232 232;   /* #FDE8E8                    */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 1024px) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  background: rgb(var(--accent));
+  color: rgb(var(--bg));
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--accent));
+  border-radius: 999px;
+  border: 2px solid rgb(var(--bg));
+}
+
+/* Noise texture overlay */
+.noise {
+  position: relative;
+}
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 1;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIvPjwvc3ZnPg==");
+}
+
+/* Glass */
+.glass {
+  background: rgb(var(--bg) / 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgb(var(--ink) / 0.07);
+}
+
+.glass-dark {
+  background: rgb(var(--ink) / 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgb(var(--bg) / 0.1);
+}
+
+/* Gradient text — ab colored */
+.gradient-text {
+  background: linear-gradient(
+    100deg,
+    rgb(var(--ink)) 0%,
+    rgb(var(--accent)) 45%,
+    rgb(var(--coral)) 70%,
+    rgb(var(--ink)) 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 7s linear infinite;
+}
+
+/* Cursor — mix-blend hata diya, colored cursor ke saath ye ganda lagta hai */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  background: rgb(var(--accent-ink));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+    border: 1px solid rgb(var(--accent-ink) / 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+}
+
+.container-px {
+  padding-left: clamp(20px, 5vw, 96px);
+  padding-right: clamp(20px, 5vw, 96px);
+}
+
+.section-py {
+  padding-top: clamp(72px, 10vw, 160px);
+  padding-bottom: clamp(72px, 10vw, 160px);
+}
+
+/* Eyebrow ab coral — instant color pop */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(var(--accent-ink)); 
+  font-weight: 600;
+}
+
+.btn-pill {
+  border-radius: 999px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+ outline: 2px solid rgb(var(--accent-ink));
+  outline-offset: 3px;
+}
