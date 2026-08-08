@@ -42,10 +42,16 @@ export default function AIShowcase() {
               </p>
             </RevealText>
             <RevealText delay={0.15}>
-              <MagneticButton href="/services#ai-automation" variant="light">
-                Explore AI automation
-                <ArrowUpRight size={16} />
-              </MagneticButton>
+              <div className="flex flex-wrap gap-4">
+                <MagneticButton href="/marketing#marketing-automation" variant="light">
+                  Explore AI automation
+                  <ArrowUpRight size={16} />
+                </MagneticButton>
+                <MagneticButton href="/contact" variant="ghost"
+                  className="!border-white/30 !text-white hover:!bg-white hover:!text-ink">
+                  Schedule free consultation
+                </MagneticButton>
+              </div>
             </RevealText>
           </div>
 
