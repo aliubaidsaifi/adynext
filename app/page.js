@@ -19,8 +19,9 @@ export default function HomePage() {
     <>
       <Hero />
       <LogoMarquee />
-      <About />
       <Services />
+      <About />
+      
       <BeforeAfter />
       <Stats />
       <Foundation />

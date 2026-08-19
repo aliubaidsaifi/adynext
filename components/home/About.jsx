@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section className="section-py bg-white">
       <div className="container-px mx-auto max-w-content">
-        <div className="grid lg:grid-cols-12 gap-12 items-end">
+        {/* <div className="grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-7">
             <RevealText>
               <p className="eyebrow mb-6">{inHouseTeam.eyebrow}</p>
@@ -54,7 +54,7 @@ export default function About() {
             sizes="100vw"
             className="object-cover"
           />
-        </motion.div>
+        </motion.div> */}
 
         <div className="grid lg:grid-cols-12 gap-12 items-start mt-24">
           <div className="lg:col-span-6">
