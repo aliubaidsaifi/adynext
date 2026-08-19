@@ -56,7 +56,7 @@ export default function About() {
           />
         </motion.div> */}
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start mt-24">
+        <div className="grid lg:grid-cols-12 gap-12 items-start mt-12">
           <div className="lg:col-span-6">
             <RevealText>
               <p className="eyebrow mb-6">{builtForLocal.eyebrow}</p>
